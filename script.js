@@ -1,6 +1,20 @@
-const carousel = document.getElementById('car');
-const prevButton = document.querySelector('button[onclick="prevSlide()"]');
-const nextButton = document.querySelector('button[onclick="nextSlide()"]');
+const items = document.getElementsByClassName("item");
+console.log(items[0]);
 
-let currentIndex = 0;
-const totalItems = document.querySelectorAll('.carousel-item').length;
+let activeItem = 0;
+
+const next = document.querySelector(".next");
+next.addEventListener('click', function () {
+
+    if (activeItem < items.length -1) {
+        items[activeItem].classList.remove('active');
+        activeItem++;
+        items[activeItem].classList.add('active')
+
+        if (activeItem === items.length -1) {
+            next.classList.add('hidden')
+        }
+    }
+
+}
+)
